@@ -1,29 +1,1612 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ঈদ রেজিস্ট্রেশন ফর্ম</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>আইহাই উচ্চ বিদ্যালয় - রেজিস্ট্রেশন</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+
+
   <style>
-    body { margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f0f0f0; }
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
+    #admin-summary, #extra-summary, #tshirt-summary {
+  background: linear-gradient(90deg, #e3f2fd, #ffffff);
+  padding: 16px;
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.2);
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+#admin-summary {
+  color: #0d47a1;
+}
+
+#extra-summary {
+  background: linear-gradient(90deg, #fffde7, #ffffff);
+  border-color: #fbc02d;
+  color: #f57f17;
+}
+
+#tshirt-summary {
+  background: linear-gradient(90deg, #f3e5f5, #ffffff);
+  border-color: #9c27b0;
+  color: #6a1b9a;
+}
+
+    /* 🌟 Admin Table Improvement Start */
+#admin-table table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#admin-table table th {
+  background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+#admin-table table td {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+}
+
+#admin-table table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+#admin-table table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+#admin-table table tr:hover {
+  background-color: #d1ecf1;
+  transition: background 0.3s ease-in-out;
+}
+
+.status-label {
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  display: inline-block;
+  color: white;
+}
+
+.status-label[style*="green"] {
+  background-color: #28a745;
+}
+
+.status-label[style*="red"] {
+  background-color: #dc3545;
+}
+
+.status-label[style*="orange"] {
+  background-color: #ffc107;
+  color: black;
+}
+/* 🌟 Admin Table Improvement End */
+
+    
+    .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #cc0000;
+  cursor: pointer;
+  z-index: 9999;
+  padding: 5px 10px;
+  line-height: 1;
+}
+
+/* মোবাইল স্ক্রীনের জন্য আলাদা ফন্ট ও পজিশন */
+@media (max-width: 480px) {
+  .modal-close {
+    font-size: 32px;
+    top: 6px;
+    right: 10px;
+    padding: 10px;
+  }
+}
+
+
+
+#typed-welcome {
+  font-size: 30px;
+  font-weight: 600;
+  background: linear-gradient(90deg, rgba(0, 153, 255, 0.9), rgba(0, 51, 204, 0.9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+
+
+  body, table, h1, h3, h4, button {
+  font-family: 'Noto Sans Bengali', sans-serif;
+}
+
+
+  body {
+    background: url('https://i.postimg.cc/fRNqtVHH/Capture.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0; padding: 0;
+  }
+
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: url('https://i.postimg.cc/fRNqtVHH/Capture.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0; padding: 0;
     }
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    
+    form {
+      max-width: 500px; background: linear-gradient(to bottom right, #e0f7fa, #f1f8e9);
+      margin: 20px auto; padding: 25px; border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    label {
+      font-weight: bold; display: block; margin: 15px 0 5px;
+    }
+    input[type="text"], input[type="tel"], select {
+      width: 100%; padding: 10px; font-size: 16px;
+      border: 1px solid #ccc; border-radius: 6px; background: #fff;
+    }
+  #phone {
+  background-color: #fff;
+  border: 1px solid #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.2);
+  font-weight: normal;
+}
+
+    input[type="submit"] {
+      background-color: #28a745; color: white; padding: 12px;
+      border: none; border-radius: 6px; cursor: pointer;
+      width: 100%; font-size: 18px; margin-top: 20px;
+    }
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+    #thank-you {
+      display: none; text-align: center; margin-top: 80px;
+      font-size: 36px; color: #ffffff; text-shadow: 2px 2px 5px #000;
+    }
+    .modal {
+      display: none; position: fixed; z-index: 999;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background: white; margin: 10% auto; padding: 30px;
+      width: 90%; max-width: 400px; border-radius: 10px;
+      text-align: center;
+    }
+    .modal-content input {
+      width: 90%; padding: 10px; margin: 15px 0;
+      font-size: 16px; border: 1px solid #ccc; border-radius: 6px;
+    }
+    .modal-btn {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
       border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
+    .modal-btn:hover {
+      background-color: #218838;
+    }
+    .admin-button {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .reset-button {
+      background-color: #ffc107;
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+input[type="checkbox"] {
+  accent-color: #009688;
+  transform: scale(1.2);
+  margin-right: 6px;
+}
+
+
+#registration-form {
+  max-width: 550px;
+  margin: 7px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #cfd8dc;
+  
+  /* 🔄 Add animation back */
+  animation: blinkGlow 2s infinite alternate;
+}
+
+
+@keyframes blinkGlow {
+  0% {
+    box-shadow:
+      0 0 5px #ff0000,
+      0 0 10px #ff7300,
+      0 0 20px #fffb00;
+  }
+  25% {
+    box-shadow:
+      0 0 10px #48ff00,
+      0 0 20px #00ffd5,
+      0 0 30px #002bff;
+  }
+  50% {
+    box-shadow:
+      0 0 10px #7a00ff,
+      0 0 20px #ff00f7,
+      0 0 30px #ff0000;
+  }
+  75% {
+    box-shadow:
+      0 0 8px #00ffd5,
+      0 0 18px #48ff00,
+      0 0 28px #fffb00;
+  }
+  100% {
+    box-shadow:
+      0 0 5px #ff00c8,
+      0 0 15px #7a00ff,
+      0 0 25px #002bff;
+  }
+}
+input[type="submit"] {
+  background: linear-gradient(90deg, #43cea2, #185a9d);
+  color: white;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 6px rgba(0, 188, 212, 0.5);
+  outline: none;
+}
+
+/* ✅ Fix form padding and alignment issues on mobile */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+/* ✅ Ensure form has enough padding on mobile */
+form {
+  padding: 20px;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+/* ✅ Mobile-specific adjustment */
+@media (max-width: 480px) {
+  form {
+    padding: 16px;
+    margin: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+
+header {
+  background-color: rgba(10, 25, 47, 0.95);
+  border-bottom: 4px solid #ffffffaa;
+  border-radius: 0 0 8px 8px;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.header-top img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+.header-top h1 {
+  font-size: 30px;
+  color: #ffffff;
+  text-shadow: 1px 1px 5px #00d4ff;
+  margin: 0;
+}
+
+.ticker-container {
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #ffcc00;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-block;
+  padding: 8px 0;
+  animation: ticker-scroll 15s linear infinite;
+}
+
+.ticker-track span {
+  display: inline-block;
+  padding: 0 50px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* 🔁 Continuous seamless scroll */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+.raindrop {
+  position: fixed;
+  top: -20px;
+  width: 2px;
+  height: 15px;
+  background: rgba(0, 136, 255, 0.6);
+  animation: fall linear;
+  z-index: 999;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+.bubble {
+  position: fixed;
+  bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background: rgba(173, 216, 230, 0.4); /* হালকা নীল বুদবুদ */
+  border-radius: 50%;
+  animation: floatUp linear;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+  #admin-table table tr {
+    page-break-inside: avoid;
+  }
+#agent-number img {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+  .confirmed {
+    background-color: #d4edda !important; /* হালকা সবুজ */
+  }
+  .rejected {
+    background-color: #f8d7da !important; /* হালকা লাল */
+  }
+  .confirm-btn, .reject-btn {
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    background: transparent;
+    margin: 0 5px;
+  }
+
   </style>
+  <!-- 🎈 Confetti Effect -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<!-- 💬 Typed.js for animated welcome text -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 <body>
-  <div class="iframe-container">
-    <iframe src="https://app.formbricks.com/s/cmaimflb8198jt0012e2ip" title="ঈদ রেজিস্ট্রেশন ফর্ম"></iframe>
+
+
+
+  
+<div id="welcome-box" style="position:fixed; top:20%; left:50%; transform:translateX(-50%);
+background:#ffffffdd; padding:20px 30px; border-radius:12px; font-size:24px; z-index:9999; text-align:center;
+box-shadow: 0 0 20px rgba(0,0,0,0.3); display:none;">
+  <span id="typed-welcome"></span>
+</div>
+
+
+<header>
+  <div class="header-top">
+      <img src="https://i.postimg.cc/CM49GHq3/484857702-2892954940878501-1043327302025993468-n.jpg" alt="Logo">
+  <h1>রেজিস্ট্রেশন ফর্ম</h1>
   </div>
+
+
+</header>
+
+<div id="thank-you">🎉 ধন্যবাদ রেজিস্ট্রেশন করার জন্য!</div>
+<div class="ticker-container">
+  <div class="ticker-track">
+    <span>রেজিস্ট্রেশনের শেষ সময় ০২-০৬-২০২৫ ইং রাত ১২ টা পর্যন্ত ⏰</span>
+    <span>রেজিস্ট্রেশনের শেষ সময় ০২-০৬-২০২৫ ইং রাত ১২ টা পর্যন্ত ⏰</span>
+  </div>
+</div>
+
+
+<form id="registration-form" action="https://sheetdb.io/api/v1/krbhax18zxxkt" method="post">
+<!-- ছাত্র-ছাত্রী নির্বাচন (একই লাইনে পাশে পাশে) -->
+<div style="margin-bottom: 15px; display: flex; gap: 20px; align-items: center;">
+ 
+<input type="checkbox" id="is-boy">ছাত্র
+<input type="checkbox" id="is-girl"> ছাত্রী
+
+</div>
+
+
+  <label for="name">নাম:</label>
+  <input type="text" name="data[NAME]" id="name" required>
+
+  <label for="address">স্থায়ী ঠিকানা:</label>
+  <input type="text" name="data[ADDRESS]" id="address" required>
+
+  <label><input type="checkbox" id="running-student"> আমি এখনো এসএসসি পাস করিনি (অধ্যায়ণরত ছাত্রসহ)</label>
+
+  <div id="ssc-year-box">
+    <label for="ssc_year">এসএসসি পাশের সাল:</label>
+    <select name="data[SSC_YEAR]" id="ssc_year"><option value="">-- নির্বাচন করুন --</option></select>
+  </div>
+
+  <div id="class-select-box" style="display: none;">
+    <label for="class">শ্রেণী:</label>
+    <select name="data[CLASS]" id="class">
+      <option value="">-- শ্রেণী নির্বাচন করুন --</option>
+      <option value="ষষ্ঠ">ষষ্ঠ</option>
+      <option value="সপ্তম">সপ্তম</option>
+      <option value="অষ্টম">অষ্টম</option>
+      <option value="নবম">নবম</option>
+      <option value="দশম">দশম</option>
+    </select>
+  </div>
+
+<div id="loading-box" style="
+  display: none;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffffee;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 9999;">
+  ⏳ ডেটা লোড হচ্ছে, দয়া করে অপেক্ষা করুন...
+</div>
+
+  
+ <!-- ✅ ৫ বছরের বেশি শিশু -->
+<div id="with-husband-box" style="margin-top: 20px; display: none;">
+  <label><input type="checkbox" id="with-husband"> স্বামী সহ</label>
+</div>
+<!-- ✅ স্ত্রী সহ অপশন (শুধু ছাত্রদের জন্য) -->
+<div id="with-wife-box" style="margin-top: 20px; display: none;">
+  <label><input type="checkbox" id="with-wife"> স্ত্রী সহ</label>
+</div>
+
+
+<div style="margin-top: 20px;">
+  <label><input type="checkbox" id="has-child"> ৫ বছরের ঊর্ধ্যে শিশু আছে?</label>
+</div>
+<div id="child-count-box" style="display:none; margin-top: 10px;">
+  <label for="child-count">শিশুর সংখ্যা:</label>
+  <select id="child-count" name="data[CHILD]"></select>
+</div>
+
+<!-- ✅ ৫ বছরের নিচে শিশু -->
+<div style="margin-top: 15px;">
+  <label><input type="checkbox" id="has-under5"> ৫ বছরের নিচে শিশু আছে?</label>
+</div>
+<div id="under5-box" style="display:none; margin-top: 10px;">
+  <label for="under5-count">শিশুর সংখ্যা (৫ বছরের নিচে):</label>
+  <select id="under5-count" name="data[UNDER_5_YEAR]"></select>
+</div>
+
+<label for="email">ইমেইল ঠিকানা:</label>
+<input type="email" name="data[EMAIL]" id="email" required placeholder="আপনার ইমেইল দিন">
+
+  <label>মোট চাঁদা (৳):</label>
+  <input type="text" id="display_fee" readonly>
+  <input type="hidden" name="data[TOTAL_FEE]" id="total_fee_input">
+
+<label for="tshirt_size">টি-শার্টের সাইজ:</label>
+<select name="data[T_SHIRT_SIZE]" id="tshirt_size" required>
+  <option value="">-- সাইজ নির্বাচন করুন --</option>
+  <option value="S">S (Small)</option>
+  <option value="M">M (Medium)</option>
+  <option value="L">L (Large)</option>
+  <option value="XL">XL (Extra Large)</option>
+  <option value="XXL">XXL</option>
+</select>
+
+
+<label for="cash_out_method">টাকা পাঠানোর মাধ্যম:</label>
+<select name="data[CASH_OUT_METHOD]" id="cash_out_method" required>
+  <option value="">-- মাধ্যম নির্বাচন করুন --</option>
+  <option value="Bkash">Bkash</option>
+  <option value="Nagad">Nagad</option>
+  <option value="Rocket">Rocket</option>
+</select>
+
+
+<div id="agent-number" style="margin-top: 8px; font-weight: bold; display: none;">
+  <!-- এখানে নম্বর ও লোগো দেখানো হবে -->
+</div>
+<div style="background: #fff8dc; padding: 12px; border-radius: 6px; margin: 20px 0; line-height: 1.8; font-weight: bold;">
+  💸 <strong>Send Money করে Transaction ID লিখুন নিচে:</strong><br><br>
+  </select>
+</div>
+
+ <label for="phone">মোবাইল নাম্বার:</label>
+<input type="tel" name="data[PHONE]" id="phone" maxlength="11" required placeholder="যে নাম্বার থেকে Send Money করেছেন সেটি দিন">
+
+
+<label for="txn_id">Transaction ID:</label>
+<input type="text" name="data[TXN_ID]" id="txn_id" required placeholder="Transaction ID দিন" style="background: transparent; color: #000;">
+
+
+  <input type="submit" value="রেজিস্ট্রেশন করুন">
+</form>
+
+<!-- Reset Modal -->
+<!-- Reset Modal -->
+<div id="resetModal" class="modal">
+  <div class="modal-content" style="position: relative;">
+    <!-- ❌ Cross Button -->
+<span class="modal-close" onclick="document.getElementById('resetModal').style.display='none'">&times;</span>
+
+    <h3>🔁 রিসেট পাসওয়ার্ড দিন</h3>
+    
+    <!-- 🔴 WhatsApp Alert -->
+    <p style="color: red; font-weight: bold; font-size: 14px; margin-bottom: 10px;">
+      রেজিস্ট্রেশন পাসওয়ার্ড পেতে <br>
+      <u>01745319176</u> নাম্বারে WhatsApp করুন।
+    </p>
+
+    <input type="password" id="resetPass" placeholder="********">
+    <br>
+    <button class="modal-btn" onclick="handleReset()">রিসেট করুন</button>
+  </div>
+</div>
+
+<!-- Admin Modal -->
+<div id="adminModal" class="modal">
+  <div class="modal-content">
+    <h3>🔐 অ্যাডমিন পাসওয়ার্ড দিন</h3>
+    <input type="password" id="adminPass" placeholder="********">
+    <br><button class="modal-btn" onclick="handleAdminLogin()">লগইন</button>
+  </div>
+</div>
+
+<!-- Buttons -->
+<div style="text-align:center;">
+  <button class="reset-button" onclick="document.getElementById('resetModal').style.display='block'">🔁 রেজিস্ট্রেশন পুনরায় চালু করুন</button>
+  <br>
+<button class="admin-button" onclick="openAdminDirect()">👥 অংশগ্রহণকারীদের দেখুন</button>
+</div>
+
+<!-- Admin Panel -->
+<div id="admin-panel" style="display:none; max-width:95%; margin:40px auto; background:#fff; padding:20px; border-radius:10px;">
+  <h3 style="text-align:center;">📋 রেজিস্ট্রেশন তালিকা</h3>
+  <div id="admin-table" style="overflow-x:auto;"></div>
+  <h4 id="admin-summary" style="text-align:center; color:green;"></h4>
+  <!-- টি-শার্ট সারাংশ -->
+<div id="tshirt-summary" style="text-align:center; color:blue; font-weight:bold; margin-top:6px;"></div>
+
+<!-- মোট শিশুদের সংক্ষেপ -->
+<div id="extra-summary" style="text-align:center; color:green; font-weight:bold; margin-top:6px;"></div>
+<!-- SSC Summary -->
+<div id="ssc-summary" style="
+  background: linear-gradient(90deg, #bbdefb, #e3f2fd);
+  border: 2px solid #1976d2;
+  padding: 16px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #0d47a1;
+  text-align: center;
+  line-height: 1.8;
+  word-spacing: 4px;
+  letter-spacing: 0.5px;
+">
+📘 <strong style="color: #0d47a1; text-shadow: 0 0 2px #90caf9;">এসএসসি ব্যাচ বিশ্লেষণ:</strong><br>
+<!-- JavaScript summary এখানে বসাবে -->
+</div>
+
+
+
+<button onclick="generatePDF()" class="no-print" style="margin: 20px auto; display: block; background: #dc3545; color: white; font-weight: bold; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">
+  ⬇️ তালিকা PDF হিসেবে ডাউনলোড করুন
+</button>
+
+
+
+
+
+</div>
+
+
+<script>
+const form = document.getElementById("registration-form");
+const thankYou = document.getElementById("thank-you");
+
+const feeDisplay = document.getElementById("display_fee");
+const hiddenFee = document.getElementById("total_fee_input");
+
+const hasChildCheckbox = document.getElementById("has-child");
+const childQuestion = document.getElementById("child-question");
+const childCountBox = document.getElementById("child-count-box");
+const childCountSelect = document.getElementById("child-count");
+const under5Question = document.getElementById("under5-question");
+const under5Checkbox = document.getElementById("has-under5");
+const under5Box = document.getElementById("under5-box");
+let under5Select = document.getElementById("under5-count");
+
+
+
+document.getElementById("has-child").addEventListener("change", function () {
+  const box = document.getElementById("child-count-box");
+  const select = document.getElementById("child-count");
+
+  if (this.checked) {
+    box.style.display = "block";
+    select.innerHTML = "";
+    for (let i = 1; i <= 10; i++) {
+      select.appendChild(new Option(i, i));
+    }
+  } else {
+    box.style.display = "none";
+    select.innerHTML = "";
+  }
+
+  updateFee();
+});
+
+
+under5Checkbox.addEventListener("change", function () {
+  const withHusband = document.getElementById("with-husband").checked;
+  const withWife = document.getElementById("with-wife").checked;
+
+  const hasChild = document.getElementById("has-child").checked;
+  const childCount = hasChild ? parseInt(document.getElementById("child-count").value || "0") : 0;
+
+  const totalParticipants = 1 + (withHusband ? 1 : 0) + childCount;
+
+  if (this.checked && totalParticipants > 1) {
+    const maxUnder5 = totalParticipants - 1;
+    under5Box.style.display = "block";
+    under5Select.innerHTML = "";
+
+    for (let i = 1; i <= maxUnder5; i++) {
+      const opt = new Option(i, i);
+      under5Select.appendChild(opt);
+    }
+
+    under5Select.addEventListener("change", updateFee);
+    updateFee();
+  } else {
+    under5Box.style.display = "none";
+
+    const newSelect = under5Select.cloneNode(true);
+    under5Select.parentNode.replaceChild(newSelect, under5Select);
+    under5Select = newSelect;
+
+    updateFee();
+  }
+});
+
+
+childCountSelect.addEventListener("change", updateFee);
+const sscYear = document.getElementById("ssc_year");
+sscYear.addEventListener("change", updateFee);
+
+
+function updateFee() {
+  const year = parseInt(document.getElementById("ssc_year").value);
+  const isRunning = document.getElementById("running-student").checked;
+  const withHusband = document.getElementById("with-husband").checked;
+  const withWife = document.getElementById("with-wife")?.checked || false; // ✅ এখানে সমস্যা ছিল
+
+  const hasChild = document.getElementById("has-child").checked;
+  const hasUnder5 = document.getElementById("has-under5").checked;
+
+  const childCount = hasChild ? parseInt(document.getElementById("child-count").value || "0") : 0;
+  const under5Count = hasUnder5 ? parseInt(document.getElementById("under5-count").value || "0") : 0;
+
+  let baseFee = 0;
+  if (isRunning) {
+    baseFee = 250;
+  } else if (!isNaN(year)) {
+    baseFee = (year >= 1995 && year <= 2016) ? 350 : 250;
+  }
+
+  const spouseExtra = (withHusband || withWife) ? baseFee : 0;
+  const total = baseFee + spouseExtra + (childCount * 200);
+  const totalParticipants = 1 + (withHusband || withWife ? 1 : 0) + childCount + under5Count;
+
+  document.getElementById("display_fee").value = total;
+  document.getElementById("total_fee_input").value = total;
+
+  const addOrUpdateHidden = (name, value) => {
+    let input = document.querySelector(`input[name='data[${name}]']`);
+    if (!input) {
+      input = document.createElement("input");
+      input.type = "hidden";
+      input.name = `data[${name}]`;
+      document.getElementById("registration-form").appendChild(input);
+    }
+    input.value = value;
+  };
+
+  addOrUpdateHidden("PARTICIPANTS", totalParticipants);
+  addOrUpdateHidden("TOTAL_FEE", total);
+}
+
+
+
+if (localStorage.getItem("formSubmitted")) {
+  form.style.display = "none";
+  thankYou.style.display = "block";
+}
+
+document.getElementById("running-student").addEventListener("change", function () {
+  const isRunning = this.checked;
+  document.getElementById("ssc-year-box").style.display = isRunning ? "none" : "block";
+  document.getElementById("class-select-box").style.display = isRunning ? "block" : "none";
+
+  if (isRunning) {
+    childQuestion.style.display = "none";
+    childCountBox.style.display = "none";
+    childCountSelect.innerHTML = "";
+  }
+
+  updateFee();
+});
+form.onsubmit = async function (e) {
+  e.preventDefault();
+
+  const isBoy = document.getElementById("is-boy").checked;
+  const isGirl = document.getElementById("is-girl").checked;
+
+  if (!isBoy && !isGirl) {
+    alert("✅ রেজিস্ট্রেশন করতে হলে ছাত্র অথবা ছাত্রী নির্বাচন করুন।");
+    return false;
+  }
+
+  updateFee();
+
+  const submitBtn = form.querySelector('input[type="submit"]'); // ✅ উপরে আনানো হয়েছে
+  const phone = document.getElementById("phone").value;
+  const txn = document.getElementById("txn_id").value.trim();
+
+  // 🛑 একই Transaction ID চেক
+  try {
+    const existingTxnCheck = await fetch("https://sheetdb.io/api/v1/krbhax18zxxkt/search?TXN_ID=" + txn);
+    const existingTxnData = await existingTxnCheck.json();
+
+    if (existingTxnData.length > 0) {
+      alert("❌ এই Transaction ID ইতিমধ্যেই ব্যবহৃত হয়েছে।");
+      submitBtn.disabled = false;
+      submitBtn.value = "রেজিস্ট্রেশন করুন";
+      return false;
+    }
+  } catch (checkErr) {
+    alert("❌ সার্ভারে সমস্যা হচ্ছে। পরে আবার চেষ্টা করুন।");
+    console.error("TXN check error:", checkErr);
+    submitBtn.disabled = false;
+    submitBtn.value = "রেজিস্ট্রেশন করুন";
+    return false;
+  }
+
+  if (phone.length !== 11 || !/^\d+$/.test(phone)) {
+    alert("সঠিক মোবাইল নাম্বার দিন!");
+    return false;
+  }
+  if (!txn) {
+    alert("Transaction ID দিন!");
+    return false;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.value = "Please wait, it's processing...";
+
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form)
+    });
+    const json = await res.json();
+
+    if (json && json.created === 1) {
+      localStorage.setItem("formSubmitted", "true");
+      form.reset();
+      feeDisplay.value = "";
+      hiddenFee.value = "";
+
+      form.style.display = "none";
+      thankYou.style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      throw new Error("SheetDB response invalid");
+    }
+
+  } catch (err) {
+    alert("❌ সাবমিশনে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+    console.error("Submit error:", err);
+    submitBtn.disabled = false;
+    submitBtn.value = "রেজিস্ট্রেশন করুন";
+  }
+
+  return false; // ✅ এটা রাখা দরকার
+};
+
+
+function handleReset() {
+  const pass = document.getElementById("resetPass").value;
+  if (pass === "1234r") {
+    localStorage.removeItem("formSubmitted");
+    location.reload();
+  } else {
+    alert("❌ ভুল পাসওয়ার্ড!");
+  }
+}
+function handleAdminLogin() {
+  const pass = document.getElementById("adminPass").value;
+  if (pass === "eid25") {
+    localStorage.setItem("isAdmin", "true");
+    document.getElementById("adminModal").style.display = "none"; // মডাল বন্ধ করুন
+    openAdminDirect(); // admin panel দেখান
+  } else {
+    alert("❌ ভুল পাসওয়ার্ড!");
+  }
+}
+
+
+</script>
+
+
+
+<script>
+function generatePDF() {
+  const originalPanel = document.getElementById("admin-panel");
+
+  // ✅ 1. Clone panel
+  const clone = originalPanel.cloneNode(true);
+
+  // ✅ 2. Style to hide the clone (but visible to html2canvas)
+  clone.style.position = 'fixed';
+  clone.style.top = '-9999px';
+  clone.style.left = '0';
+  clone.style.opacity = '1';
+  clone.style.zIndex = '-1';
+  document.body.appendChild(clone);
+
+  // ✅ 3. Mask email and txn in clone
+  const rows = clone.querySelectorAll('table tr');
+  rows.forEach((tr, index) => {
+    const cells = tr.querySelectorAll('td');
+    if (cells.length > 11) {
+      cells[8].textContent = '********';  // Email column
+      cells[11].textContent = '********'; // Txn ID column
+    }
+  });
+
+  // ✅ 4. Generate PDF from clone
+  const opt = {
+    margin: 0.5,
+    filename: 'registration_list.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: {
+      scale: 1.5,
+      useCORS: true,
+      scrollY: 0
+    },
+    jsPDF: { unit: 'in', format: 'A4', orientation: 'landscape' }
+  };
+
+  html2pdf().set(opt).from(clone).save().then(() => {
+    document.body.removeChild(clone); // ✅ 5. Remove clone after use
+  });
+}
+
+
+</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+<script>
+function generatePDF() {
+  const panel = document.getElementById("admin-panel");
+  const downloadBtn = panel.querySelector(".no-print"); // 🎯 শুধু এই বাটন লুকানো হবে
+
+  // 🔒 PDF বানানোর আগে বাটন লুকান
+  if (downloadBtn) downloadBtn.style.display = "none";
+
+  const opt = {
+    margin: 0.5,
+    filename: 'registration_list.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: {
+      scale: 1.5,
+      useCORS: true,
+      scrollY: 0
+    },
+    jsPDF: { unit: 'in', format: 'legal', orientation: 'landscape' }
+  };
+
+  // 📄 PDF তৈরি করুন
+  html2pdf().set(opt).from(panel).save().then(() => {
+    // ✅ কাজ শেষ হলে বাটন আবার দেখান
+    if (downloadBtn) downloadBtn.style.display = "block";
+  });
+}
+</script>
+
+
+<script>
+window.addEventListener('load', () => {
+  const welcomeBox = document.getElementById("welcome-box");
+  welcomeBox.style.display = "block";
+
+  // 🎈 Confetti blast once
+  confetti({
+    particleCount: 150,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+
+  // 💬 Typed.js animation with timing set for 7 sec
+  new Typed('#typed-welcome', {
+    strings: [
+      "🎈 ভালোবাসা ও ঈদ পুনর্মিলন প্ল্যাটফর্মে আপনাকে স্বাগতম!",
+      "🚀 একসাথে স্মৃতির যাত্রায় চলুন!"
+    ],
+    typeSpeed: 30,
+    backSpeed: 0,
+    backDelay: 1000,
+    loop: false,
+    showCursor: false
+  });
+
+  // Hide welcome box after 7 seconds
+  setTimeout(() => {
+    welcomeBox.style.display = "none";
+  }, 7000);
+});
+</script>
+
+<script>
+function createRainDrop() {
+  const drop = document.createElement("div");
+  drop.classList.add("raindrop");
+
+  drop.style.left = Math.random() * window.innerWidth + "px";
+  drop.style.animationDuration = (0.5 + Math.random() * 1.5) + "s";
+
+  document.body.appendChild(drop);
+
+  setTimeout(() => {
+    drop.remove();
+  }, 2000);
+}
+
+// ⏱️ প্রতি 100ms এ বৃষ্টি তৈরি হবে
+setInterval(createRainDrop, 100);
+</script>
+<script>
+function createBubble() {
+  const bubble = document.createElement("div");
+  bubble.classList.add("bubble");
+
+  // র‍্যান্ডম horizontal অবস্থান
+  bubble.style.left = Math.random() * window.innerWidth + "px";
+
+  // র‍্যান্ডম আকার
+  const size = Math.random() * 20 + 10; // 10px to 30px
+  bubble.style.width = size + "px";
+  bubble.style.height = size + "px";
+
+  // র‍্যান্ডম animation duration
+  bubble.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+  document.body.appendChild(bubble);
+
+  // কিছু সময় পর বুদবুদ মুছে ফেলুন
+  setTimeout(() => {
+    bubble.remove();
+  }, 7000);
+}
+
+// চিরকাল চলবে
+setInterval(createBubble, 300);
+</script>
+
+<script>
+function openAdminDirect() {
+  document.getElementById("loading-box").style.display = "block";
+
+  fetch("https://sheetdb.io/api/v1/krbhax18zxxkt")
+    .then(res => res.json())
+    .then(data => {
+  let isAdmin;
+  isAdmin = localStorage.getItem("isAdmin") === "true";
+
+
+      let html = `
+        <div style='overflow-x:auto;'>
+          <table border='1' cellpadding='6' style='width:100%; border-collapse:collapse; min-width:800px'>
+            <tr style='background:#f2f2f2'>
+              <th>ক্রমিক</th>
+              <th>নাম</th>
+              <th>ঠিকানা</th>
+              <th>SSC</th>
+              <th>শ্রেণী</th>
+              <th>সংখ্যা</th>
+              <th>৫ বছরের বেশি শিশু</th>
+              <th>৫ বছরের নিচে শিশু</th>
+              <th>টি-শার্ট সাইজ</th>
+              <th>ইমেইল</th>
+              <th>মোবাইল</th>
+              <th>Cash Out মাধ্যম</th>
+              <th>Txn ID</th>
+              <th>মোট</th>
+              <th>স্টেটাস</th>
+            </tr>`;
+
+      data.forEach((row, index) => {
+      const id = row.TXN_ID || '';
+const isAdmin = localStorage.getItem("isAdmin") === "true";
+const maskedTxnId = isAdmin ? id : '*******';
+
+const email = row.EMAIL || '';
+const maskedEmail = isAdmin ? email : '********';
+
+
+const status = (row.STATUS || '').toLowerCase(); // SheetDB থেকে সরাসরি নেওয়া
+     
+const text = status === 'confirmed' ? 'Approved' : (status === 'rejected' ? 'Rejected' : 'Pending');
+const color = status === 'confirmed' ? 'green' : (status === 'rejected' ? 'red' : 'orange');
+
+let statusCell = "";
+
+if (isAdmin) {
+  if (status === 'confirmed') {
+    statusCell = `
+      <div class="status-cell" data-txn="${id}">
+        <span class="status-label" style="color:green; font-weight:bold;">Approved</span>
+      </div>`;
+  } else if (status === 'rejected') {
+    statusCell = `
+      <div class="status-cell" data-txn="${id}">
+        <span class="status-label" style="color:red; font-weight:bold;">Rejected</span>
+      </div>`;
+  } else {
+    // Pending হলে শুধু Admin এর জন্য Approve/Reject বোতাম দেখানো হবে
+    statusCell = `
+      <div class="status-cell" data-txn="${id}">
+        <span class="status-label" style="color:orange; font-weight:bold;">Pending</span>
+        <button class="confirm-btn">✔️</button>
+        <button class="reject-btn">❌</button>
+      </div>`;
+  }
+} else {
+  // সাধারণ ইউজারের জন্য কেবল টেক্সট
+  if (status === 'confirmed') {
+    statusCell = `<span class="status-label" style="color:green; font-weight:bold;">Approved</span>`;
+  } else if (status === 'rejected') {
+    statusCell = `<span class="status-label" style="color:red; font-weight:bold;">Rejected</span>`;
+  } else {
+    statusCell = `<span class="status-label" style="color:orange; font-weight:bold;">Pending</span>`;
+  }
+}
+
+
+
+
+
+        html += `
+          <tr data-id="${id}">
+            <td>${index + 1}</td> <!-- ক্রমিক নম্বর -->
+            <td>${row.NAME || ''}</td>
+            <td>${row.ADDRESS || ''}</td>
+            <td>${row.SSC_YEAR || ''}</td>
+            <td>${row.CLASS || ''}</td>
+            <td>${row.PARTICIPANTS || '1'}</td>
+            <td>${row.CHILD || '০'}</td>
+            <td>${row.UNDER_5_YEAR || '০'}</td>
+            <td>${row.T_SHIRT_SIZE || ''}</td>
+            <td>${maskedEmail}</td>
+            <td>${row.PHONE || ''}</td>
+            <td>${row.CASH_OUT_METHOD || ''}</td>
+           <td>${maskedTxnId}</td>
+            <td>${row.TOTAL_FEE || ''}</td>
+            <td>${statusCell}</td>
+          </tr>`;
+      });
+
+      html += "</table></div>";
+
+      document.getElementById("admin-table").innerHTML = html;
+
+      // স্ট্যাটাস বাটনের ফাংশন সক্রিয়
+      setupStatusButtons();
+      loadStatuses();
+      updateTotals();
+
+      document.getElementById("admin-panel").style.display = "block";
+      window.scrollTo({ top: document.getElementById("admin-panel").offsetTop, behavior: "smooth" });
+
+    })
+    .catch(() => alert("❌ ডেটা লোড করতে সমস্যা হয়েছে!"))
+    .finally(() => {
+      document.getElementById("loading-box").style.display = "none";
+    });
+}
+
+
+
+// যখন ৫ বছরের নিচে শিশু চেক করা হবে
+document.getElementById("has-under5").addEventListener("change", function () {
+  const box = document.getElementById("under5-box");
+  const select = document.getElementById("under5-count");
+  if (this.checked) {
+    box.style.display = "block";
+    select.innerHTML = "";
+    for (let i = 1; i <= 10; i++) {
+      select.appendChild(new Option(i, i));
+    }
+  } else {
+    box.style.display = "none";
+    select.innerHTML = "";
+  }
+  updateFee();
+});
+document.getElementById("with-husband").addEventListener("change", updateFee);
+document.getElementById("with-wife").addEventListener("change", updateFee);
+
+
+// যখন সংখ্যা পরিবর্তন হবে
+document.getElementById("child-count").addEventListener("change", updateFee);
+document.getElementById("under5-count").addEventListener("change", updateFee);
+
+// ssc সাল বা running student টিক চেক করা হলে
+document.getElementById("ssc_year").addEventListener("change", updateFee);
+document.getElementById("running-student").addEventListener("change", function () {
+  const isRunning = this.checked;
+  document.getElementById("ssc-year-box").style.display = isRunning ? "none" : "block";
+  document.getElementById("class-select-box").style.display = isRunning ? "block" : "none";
+  updateFee();
+});
+
+</script>
+<script>
+// Admin Login Handle
+function handleAdminLogin() {
+  const pass = document.getElementById("adminPass").value;
+  if (pass === "aihai2025") {
+    localStorage.setItem("isAdmin", "true");
+    location.reload(); // ✅ reload করলে admin access UI-তে দেখা যাবে
+  } else {
+    alert("❌ ভুল পাসওয়ার্ড!");
+  }
+}
+</script>
+<script>
+// Return text: Approved / Pending
+function getStatusText(txnId) {
+  const statusData = JSON.parse(localStorage.getItem("paymentStatus") || '{}');
+  return statusData[txnId] === 'confirmed' ? 'Approved' : 'Pending';
+}
+
+// Return color based on status
+function getStatusColor(txnId) {
+  const statusData = JSON.parse(localStorage.getItem("paymentStatus") || '{}');
+  return statusData[txnId] === 'confirmed' ? 'green' : 'orange';
+}
+</script>
+
+<!-- HTML কোড শেষ -->
+<script>
+  const cashOutSelect = document.getElementById('cash_out_method');
+  const agentNumberDiv = document.getElementById('agent-number');
+
+const agents = {
+  Bkash: {
+    number: '01729-436399',
+    logo: 'https://i.postimg.cc/yYWtZnx9/Bkash-logo.png'
+  },
+  Nagad: {
+    number: '01729-436399',
+    logo: 'https://i.postimg.cc/MZVc1c8c/unnamed.png'
+  },
+  Rocket: {
+    number: '017816876613',
+    logo: 'https://i.postimg.cc/4dVNsskf/DBBL-Mobile-Banking-Becomes-Rocket.jpg'
+  }
+};
+
+  cashOutSelect.addEventListener('change', function() {
+    const selected = this.value;
+    if (agents[selected]) {
+      agentNumberDiv.style.display = 'block';
+agentNumberDiv.innerHTML = `<img src="${agents[selected].logo}" alt="${selected} Logo" style="height:24px; vertical-align:middle; margin-right:6px;"> ${selected} Personal: <span style="color: ${selected === 'Bkash' ? '#3bc4c6' : '#ff8800'};">${agents[selected].number}</span>`;
+    } else {
+      agentNumberDiv.style.display = 'none';
+      agentNumberDiv.innerHTML = '';
+    }
+  });
+</script>
+
+<script>
+function saveStatus(id, status) {
+  fetch(`https://sheetdb.io/api/v1/krbhax18zxxkt/TXN_ID/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ data: { STATUS: status } })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log("✅ STATUS updated in SheetDB:", data);
+
+    // 📨 Email Automation via Apps Script Web App
+
+
+    openAdminDirect();  // Table refresh
+  })
+  .catch(err => {
+    console.error("❌ SheetDB update failed:", err);
+  });
+}
+
+
+
+
+function loadStatuses() {
+  document.querySelectorAll('#admin-table table tr[data-id]').forEach(tr => {
+    const statusCell = tr.querySelector('.status-cell');
+    const id = tr.dataset.id;
+
+    const label = statusCell?.querySelector('.status-label');
+    const currentText = label?.textContent.trim().toLowerCase();
+
+    if (currentText === 'approved') {
+      tr.classList.add('confirmed');
+      tr.classList.remove('rejected');
+    } else if (currentText === 'rejected') {
+      tr.classList.add('rejected');
+      tr.classList.remove('confirmed');
+    } else {
+      tr.classList.remove('confirmed', 'rejected');
+    }
+  });
+}
+
+
+function updateTotals() {
+  let totalParticipants = 0;
+  let totalFee = 0;
+  let totalChild = 0;
+  let totalUnder5 = 0;
+
+  document.querySelectorAll('#admin-table table tr[data-id]').forEach(tr => {
+    const statusText = tr.querySelector('.status-label')?.textContent.toLowerCase();
+    if (statusText === 'approved') {
+      const participants = parseInt(tr.children[5].textContent) || 0;
+      const totalFeeRow = parseInt(tr.children[13].textContent) || 0;
+      const child = parseInt(tr.children[6].textContent) || 0;
+      const under5 = parseInt(tr.children[7].textContent) || 0;
+
+      totalParticipants += participants;
+      totalFee += totalFeeRow;
+      totalChild += child;
+      totalUnder5 += under5;
+    }
+  });
+
+  document.getElementById("admin-summary").innerHTML =
+    `✅ মোট অংশগ্রহণকারী: ${totalParticipants} | মোট টাকা: ${totalFee}৳`;
+
+  document.getElementById("extra-summary").innerHTML = `
+    মোট ৫ বছরের বেশি শিশু: ${totalChild} জন |
+    মোট ৫ বছরের নিচে শিশু: ${totalUnder5} জন
+  `;
+
+  updateTShirtSummary();
+  updateSSCYearSummary();
+
+}
+function updateTShirtSummary() {
+  const sizeCount = { S: 0, M: 0, L: 0, XL: 0, XXL: 0 };
+
+  document.querySelectorAll('#admin-table table tr[data-id]').forEach(tr => {
+    const statusText = tr.querySelector('.status-label')?.textContent.toLowerCase();
+    if (statusText === 'approved') {
+      const size = tr.children[8].textContent.trim();
+      if (sizeCount[size] !== undefined) {
+        sizeCount[size]++;
+      }
+    }
+  });
+
+  const summaryText = `
+    👕 টি-শার্ট সাইজ বিতরণ:
+    S: ${sizeCount.S} জন | 
+    M: ${sizeCount.M} জন | 
+    L: ${sizeCount.L} জন | 
+    XL: ${sizeCount.XL} জন | 
+    XXL: ${sizeCount.XXL} জন
+  `;
+
+  document.getElementById("tshirt-summary").textContent = summaryText;
+}
+
+function updateSSCYearSummary() {
+  const yearCount = {};
+
+  document.querySelectorAll('#admin-table table tr[data-id]').forEach(tr => {
+    const statusText = tr.querySelector('.status-label')?.textContent.toLowerCase();
+    if (statusText === 'approved') {
+      const year = tr.children[3].textContent.trim(); // 4th column = SSC year
+      if (year) {
+        yearCount[year] = (yearCount[year] || 0) + 1;
+      }
+    }
+  });
+
+  let summaryText = "📘 এসএসসি ব্যাচ বিশ্লেষণ: ";
+  const sortedYears = Object.keys(yearCount).sort();
+
+  summaryText += sortedYears.map(y => `${y}: ${yearCount[y]} জন`).join(" | ");
+
+  const div = document.getElementById("ssc-summary");
+  if (div) {
+    div.textContent = summaryText;
+  }
+}
+
+
+function setupStatusButtons() {
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
+  if (!isAdmin) return;
+
+  document.querySelectorAll('.confirm-btn').forEach(btn => {
+
+btn.addEventListener('click', function () {
+  const tr = this.closest('tr');
+  tr.classList.add('confirmed');
+  tr.classList.remove('rejected');
+
+  this.style.display = 'inline-block';
+  const rejectBtn = tr.querySelector('.reject-btn');
+  if (rejectBtn) rejectBtn.style.display = 'none';
+
+  saveStatus(tr.dataset.id, 'confirmed');
+  // ✅ EmailJS: Confirmation ইমেইল পাঠানো
+const name = tr.children[1].textContent;
+const email = tr.children[9].textContent;
+const year = tr.children[3].textContent;
+const participants = tr.children[5].textContent;
+
+console.log("📨 Preparing to send email to:", email); // ✅ Debug log
+
+if (email !== '********' && /\S+@\S+\.\S+/.test(email)) {
+  emailjs.send("service_2xpa1xi", "template_wu6akio", {
+    to_name: name,
+    to_email: email,
+    batch_year: year,
+    participants: participants
+  }).then(() => {
+    console.log("✅ Confirmation email sent to", email);
+  }).catch(error => {
+    console.error("❌ Email sending failed:", error);
+  });
+} else {
+  console.warn("⚠️ Email masked or invalid:", email);
+}
+
+  updateTotals();
+
+  // ✅ Confirm করার পর UI-তে "Approved" দেখানো
+  const statusCell = tr.querySelector('.status-cell');
+  if (statusCell) {
+const newStatusLabel = document.createElement('span');
+newStatusLabel.className = 'status-label';
+newStatusLabel.style.color = 'green';
+newStatusLabel.style.fontWeight = 'bold';
+newStatusLabel.textContent = 'Approved';
+
+statusCell.innerHTML = ''; // পুরনো ক্লিয়ার
+statusCell.appendChild(newStatusLabel);
+  }
+});
+
+  });
+
+  document.querySelectorAll('.reject-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const tr = this.closest('tr');
+      tr.classList.add('rejected');
+      tr.classList.remove('confirmed');
+
+      this.style.display = 'inline-block';
+      const confirmBtn = tr.querySelector('.confirm-btn');
+      if (confirmBtn) confirmBtn.style.display = 'none';
+
+      saveStatus(tr.dataset.id, 'rejected');
+      updateTotals();
+    });
+  });
+}
+
+</script>
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("isAdmin") === "true") {
+    openAdminDirect();
+  }
+});
+</script>
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  const sscYear = document.getElementById("ssc_year");
+  for (let y = 1995; y <= 2025; y++) {
+    let opt = new Option(y, y);
+    sscYear.appendChild(opt);
+  }
+});
+</script>
+<script>
+document.getElementById("is-girl").addEventListener("change", function () {
+  const girl = this.checked;
+  const boy = document.getElementById("is-boy");
+
+  if (girl) {
+    boy.checked = false;
+    document.getElementById("with-husband-box").style.display = "block";
+
+    document.getElementById("with-wife-box").style.display = "none";
+    document.getElementById("with-wife").checked = false;
+  } else {
+    document.getElementById("with-husband-box").style.display = "none";
+    document.getElementById("with-husband").checked = false;
+  }
+
+  updateFee(); // ✅ add this here
+});
+
+
+document.getElementById("is-boy").addEventListener("change", function () {
+  const boy = this.checked;
+  const girl = document.getElementById("is-girl");
+
+  if (boy) {
+    girl.checked = false;
+    document.getElementById("with-husband-box").style.display = "none";
+    document.getElementById("with-husband").checked = false;
+
+    document.getElementById("with-wife-box").style.display = "block";
+  } else {
+    document.getElementById("with-wife-box").style.display = "none";
+    document.getElementById("with-wife").checked = false;
+  }
+
+  updateFee(); // ✅ add this here
+});
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<!-- Initialize EmailJS -->
+<script>
+  (function() {
+    emailjs.init("LZ4py_E8M9twgzAKl"); // ✅ আপনার দেওয়া Public Key / User ID
+  })();
+</script>
+
+
+<button id="adminLoginBtn" onclick="document.getElementById('adminModal').style.display='block'" style="position: fixed; top: 10px; right: 10px; padding: 6px 10px; font-size: 18px; background: #333; color: #fff; border-radius: 50%; border: none; cursor: pointer; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;" title="Admin Access">🔒</button>
+
 </body>
 </html>
